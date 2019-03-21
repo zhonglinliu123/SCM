@@ -1,0 +1,248 @@
+<html>
+<head>
+<title>采购单</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="../script/common.js" ></script>
+<script type="text/javascript" src="../script/productDiv.js" ></script>
+
+<style type="text/css">
+	div.product{
+		position: absolute;
+		top:2px;
+		left: 2px;
+		width:100%;
+		height: 98%;
+		background-color: #fffffe;
+	}
+
+</style>
+<script language="javascript">
+	function test(){
+		document.getElementById("con").style.display="block";
+		}
+</script>
+</head>
+<div >
+</div>
+<body onLoad="init()">
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td nowrap class="title1">您的位置：工作台面－－采购管理－－供应商管理</td>
+  </tr>
+</table>
+<div class="formVisiblitly" id="formDiv"></div>
+<form action="" name="mainFrm">
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="30px" nowrap class="toolbar">&nbsp;</td>
+    <td width="70px" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="document.mainFrm.mx.click()"><img src="../images/add.gif">增加明细</td>
+    <td width="20px" nowrap class="toolbar">|</td>
+    <td width="40px" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="document.mainFrm.bc.click()"><img src="../images/save.gif">保存</td>
+    <td width="20px" nowrap class="toolbar">|</td>
+    <td width="40px" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="document.mainFrm.ts.click()"><img src="../images/send.gif">提审</td>
+    <td width="20px" nowrap class="toolbar">|</td>
+    <td width="40px" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="document.mainFrm.dy.click()"><img src="../images/search.gif">打印</td>
+    <td width="20px" nowrap class="toolbar">|</td>
+    <td width="40px" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="document.mainFrm.cz.click()"><img src="../images/reset.gif">重置</td>
+    <td width="20px" nowrap class="toolbar">|</td>
+    <td width="40px" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="document.mainFrm.gb.click()"><img src="../images/cancel.gif">关闭</td>
+	<td nowrap class="toolbar">&nbsp;</td>
+  </tr>
+</table>
+
+<table id="headTable" width="100%"  border="0" align="center" class="a1">
+  <tr align="justify">
+    <td>采购单编号</td>
+    <td><input type="text" value="T000000001" size="15"/>
+      <span class="requred_symbol">*</span></td>
+    <td>创建时间</td>
+    <td><input type="text" size="15"/>
+      <span class="requred_symbol">*</span></td>
+    <td>供应商的名称</td>
+    <td><input type="text" size="15" onBlur="test()"/>
+      <span class="requred_symbol">*</span>
+      	<div style="border:#3FF 1px solid; height:50px; display:none; position:absolute;  width:120px; background-color:#090;" id="con">
+        
+        </div>
+      </td>
+    <td>创建用户</td>
+    <td><input name="textfield" type="text" size="15">
+        <span class="requred_symbol">*</span></td>
+  </tr>
+  <tr align="justify">
+    <td>联系电话</td>
+    <td><input type="text" size="15"/>
+        <span class="requred_symbol">*</span></td>
+    <td> 传真号码</td>
+    <td><input type="text" size="15"/></td>
+    <td>邮政编码</td>
+    <td><input name="textfield" type="text" size="15"></td>
+    <td>电子邮件</td>
+    <td><input name="text" type="text" size="15"/></td>
+   </tr>
+  <tr align="justify">
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr align="justify">
+    <td>填单人</td>
+    <td><input type="text" size="15"/>
+        <span class="requred_symbol">*</span></td>
+    <td>填单日期</td>
+    <td><input name="tdrq" type="text" size="15"  readonly="readonly"/>
+        <span class="requred_symbol">*</span>
+        <a href="javascript:void(0)" onClick="gfPop.fPopCalendar(document.all.tdrq);return false;">
+        <img name="popcal"  src="../images/selectDate.gif" width="15" height="12" border="0" alt=""></a>
+	</td>
+    <td>填单时间</td> 
+    <td><input type="text" size="15"/></td>
+    <td>状态</td>
+    <td><input name="textfield34" type="text" size="15"></td>
+  </tr>
+  <tr align="justify">
+    <td>提货地点</td>
+    <td><input type="text" size="15"/>
+      <span class="requred_symbol">*</span></td>
+    <td>截止日期</td>
+    <td><input name="jzrq" type="text" size="15"  readonly="readonly">
+      <span class="requred_symbol">*</span>
+      <a href="javascript:void(0)" onClick="gfPop.fPopCalendar(document.all.jzrq);return false;">
+      <img name="popcal"  src="../images/selectDate.gif" width="15" height="12" border="0" alt=""></a>
+	</td>
+    <td>截止时间</td>
+    <td><input name="textfield" type="text" size="15"></td>
+    <td>保价金额</td>
+    <td><input type="text" size="15"/></td>
+  </tr>
+  <tr align="justify">
+    <td>用车标志</td>
+    <td><input name="radiobutton" type="radio" value="radiobutton" checked>
+  是
+    <input name="radiobutton" type="radio" value="radiobutton">
+  否</td>
+    <td>实提日期</td>
+    <td><input name="strq" type="text" size="15"  readonly="readonly">
+      <a href="javascript:void(0)" onClick="gfPop.fPopCalendar(document.all.strq);return false;">
+      <img name="popcal"  src="../images/selectDate.gif" width="15" height="12" border="0" alt=""></a>
+	</td>
+    <td>实提时间</td>
+    <td><input name="textfield2" type="text" size="15"></td>
+    <td>录入员</td>
+    <td><input name="textfield3" type="text" size="15"></td>
+  </tr>
+  <tr align="justify">
+    <td>录入日期</td>
+    <td><input name="lrrq" type="text" size="15"  readonly="readonly">
+      <a href="javascript:void(0)" onClick="gfPop.fPopCalendar(document.all.lrrq);return false;">
+      <img name="popcal"  src="../images/selectDate.gif" width="15" height="12" border="0" alt=""></a>
+	</td>
+    <td>审核员</td>
+    <td><input name="textfield22" type="text" size="15"></td>
+    <td>审核日期</td>
+    <td><input name="shrq" type="text" size="15" readonly="readonly">
+      <a href="javascript:void(0)" onClick="gfPop.fPopCalendar(document.all.shrq);return false;">
+      <img name="popcal"  src="../images/selectDate.gif" width="15" height="12" border="0" alt=""></a>
+	</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+  </tr>
+  <tr align="justify">
+    <td>备注</td>
+    <td colspan="7"><input name="text" size="100"></td>
+    </tr>
+  <tr align="justify">
+    <td>反馈意见</td>
+    <td colspan="7"><input name="text" size="100"></td>
+  </tr>
+  <tr>
+  	<td class="title2"></td>
+  </tr>
+</table>
+<table width="100%"  border="0" align="center" cellspacing="1" id="detailTable">
+  <tr>
+    <td class="toolbar"> 序号 </td>
+    <td class="toolbar"> 商品编码 </td>
+    <td class="toolbar"> 商品名称 </td>
+    <td class="toolbar"> 应提数量 </td>
+    <td class="toolbar"> 商品体积 </td>
+    <td class="toolbar">商品重量</td>
+    <td class="toolbar">实提数量</td>
+    <td class="toolbar">备注</td>
+    <td class="toolbar">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%"  border="0" align="center" cellspacing="1">
+  <tr>
+    <td class="title2"></td>
+  </tr>
+</table>
+<br>
+<div align="center">
+    <input type="button" id="mx" value="增加明细" onClick="addItem()"/>
+    <input type="submit" id="bc" value="保存"/>
+    <input type="submit" id="ts" value="提审"/>
+    <input type="button" id="dy" value="打印" onClick="window.print()"/>
+    <input name="reset"  id="cz" value="重置" type="reset"/>
+    <input type="button" id="gb" value="关闭" onClick="window.close()"/>
+</div>
+
+<!-- div -->
+ 
+<div id="productDiv" style="visibility: hidden;" class="product">
+	<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+	  <tr>
+	    <td width="30px" nowrap="nowrap"="nowrap="nowrap"" class="toolbar">&nbsp;</td>
+	    <td width="40px" nowrap="nowrap" class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="choiceAnonymous('productDiv')"><img src="../images/confirm.gif">确定</td>
+	    <td width="20px" nowrap="nowrap" class="toolbar">|</td>
+	    <td width="40px" nowrap="nowrap" class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="hiddenDiv()"><img src="../images/cancel.gif">取消</td>
+		<td align="center" valign="middle" nowrap="nowrap" class="toolbar">&nbsp;</td>
+	  </tr>
+	</table>
+	<table width="100%"  border="0" align="center" cellspacing="1" class="a1" id="spxxTable">
+	  <tr>
+	    <td class="title1">选择</td>
+	    <td class="title1">商品编码</td>
+	    <td class="title1">商品名称</td>
+	    <td class="title1">商品体积</td>
+	    <td class="title1">商品重量</td>
+	  </tr>
+	  <tr onClick="selectItem(this)" onMouseOver="OMO1(event)" onDblClick="choice(1)" align="center">
+	    <td>&nbsp;</td>
+	    <td>00001</td>
+	    <td>光明牛奶</td>
+	    <td>250ml</td>
+	    <td>&nbsp;</td>
+	  </tr>
+	  <tr onClick="selectItem(this)" onMouseOver="OMO1(event)" onDblClick="choice(2)" align="center">
+	    <td>&nbsp;</td>
+	    <td>00002</td>
+	    <td>西湖大米</td>
+	    <td>&nbsp;</td>
+	    <td>10kg</td>
+	  </tr>
+	  <tr onClick="selectItem(this)" onMouseOver="OMO1(event)"  ondblclick="choice(3)" align="center">
+	    <td>&nbsp;</td>
+	    <td>00003</td>
+	    <td>金龙鱼色拉油</td>
+	    <td>10L</td>
+	    <td>8kg</td>
+	  </tr>
+	   <tr>
+	    <td class="title2"></td>
+	  </tr>
+	</table>
+</div>
+
+
+</form>
+ 
+<iframe width=174 height=189 name="gToday:normal:agenda.js" id="gToday:normal:agenda.js" src="../common/calendar/ipopeng.htm" scrolling="no" frameborder="0" style="visibility:visible; z-index:999; position:absolute; left:-500px; top:0px;"></iframe>
+</body>
+</html>

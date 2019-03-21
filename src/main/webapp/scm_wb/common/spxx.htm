@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>商品信息列表</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="../script/common.js"></script>
+<script language="javascript" type="text/javascript">
+	var rowlength; //每行多少个单元
+	function init() {
+		rowlength = document.all.spxxTable.rows[0].cells.length;
+	}
+	function choice(index) {
+		var row = document.all.spxxTable.rows(index);
+		var result = new Array(rowlength);
+		var i;
+		for (i=1; i<rowlength; i++) {
+			result[i-1] = row.cells[i].innerText;
+		}
+		window.returnValue = result;
+		window.close();
+	}
+	function choiceAnonymous() {
+		var len = spxxTable.rows.length;
+		var i;
+		for (i = 1; i < len - 1; i++) {
+			if (spxxTable.rows[i].cells[0].innerText == "√") {
+				choice(i);
+				return;
+			}
+		}
+		alert("请先选择商品");
+	}
+	function selectItem(index) {
+		var len = spxxTable.rows.length;
+		var selectedNumber = -1;
+		var i, length;
+		for (var i = 1; i < len - 1; i++) {
+			if (spxxTable.rows[i].cells[0].innerText == "√") {
+				selectedNumber = i;
+				break;
+			}
+		}
+		if (selectedNumber==-1) { //第一次选择
+			spxxTable.rows[index].cells[0].innerText = "√";
+			for(i=0; i<rowlength; i++)
+				spxxTable.rows[index].cells[i].style.backgroundColor = "#C1CDD8";
+		} else if (selectedNumber==index) { //取消选择
+			spxxTable.rows[index].cells[0].innerText = "";
+			for(i=0; i<rowlength; i++)
+				spxxTable.rows[index].cells[i].style.backgroundColor = "#fff7e5";
+		} else if (selectedNumber!=index) { //取消上次选择并选择新的
+			spxxTable.rows[index].cells[0].innerText = "√";
+			for(i=0; i<rowlength; i++)
+				spxxTable.rows[index].cells[i].style.backgroundColor = "#C1CDD8";
+			spxxTable.rows[selectedNumber].cells[0].innerText = "";
+			for(i=0; i<rowlength; i++)
+				spxxTable.rows[selectedNumber].cells[i].style.backgroundColor = "#fff7e5";
+		}
+	}
+</script>
+</head>
+
+<body onLoad="init()">
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="30px" nowrap class="toolbar">&nbsp;</td>
+    <td width="40px" nowrap class="toolbar" onMouseOver="OMO()" onMouseOut="OMOU()" onClick="choiceAnonymous()"><img src="../images/confirm.gif">确定</td>
+    <td width="20px" nowrap class="toolbar">|</td>
+    <td width="40px" nowrap class="toolbar" onMouseOver="OMO()" onMouseOut="OMOU()" onClick="window.close()"><img src="../images/cancel.gif">取消</td>
+	<td align="center" valign="middle" nowrap class="toolbar">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%"  border="0" align="center" cellspacing="1" class="a1" id="spxxTable">
+  <tr>
+    <td class="title1">选择</td>
+    <td class="title1">商品编码</td>
+    <td class="title1">商品名称</td>
+    <td class="title1">商品体积</td>
+    <td class="title1">商品重量</td>
+  </tr>
+  <tr onClick="selectItem(1)" onMouseOver="OMO1()" onDblClick="choice(1)" align="center">
+    <td>&nbsp;</td>
+    <td>00001</td>
+    <td>光明牛奶</td>
+    <td>250ml</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr onClick="selectItem(2)" onMouseOver="OMO1()" onDblClick="choice(2)" align="center">
+    <td>&nbsp;</td>
+    <td>00002</td>
+    <td>西湖大米</td>
+    <td>&nbsp;</td>
+    <td>10kg</td>
+  </tr>
+  <tr onClick="selectItem(3)" onMouseOver="OMO1()" onDblClick="choice(3)" align="center">
+    <td>&nbsp;</td>
+    <td>00003</td>
+    <td>金龙鱼色拉油</td>
+    <td>10L</td>
+    <td>8kg</td>
+  </tr>
+   <tr>
+    <td class="title2"></td>
+  </tr>
+</table>
+</body>
+</html>

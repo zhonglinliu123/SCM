@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>查询条件</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="../script/common.js"></script>
+<script language="javascript" type="text/javascript">	
+	var strField;
+	function init() {
+		var params = window.dialogArguments;
+		strField = "<select id='field'>";
+		var paramsLength = params.bm.length;
+		var i=0;
+		for (i=0; i<paramsLength; i++)
+			strField += "<option value='"+params.bm[i]+"'>"+params.mc[i]+"</option>";
+		strField += "</select>";
+	}
+	
+	function addItem() {
+		var oRow = detailTable.insertRow();
+		oRow.align = "center";
+
+		oCell = oRow.insertCell();
+		oCell.innerHTML = "<select id='leftbracket'>\
+  <option value=' ' selected>&nbsp;</option>\
+  <option value='('>(</option>\
+  <option value='(('>((</option>\
+  <option value='((('>(((</option>\
+</select>";
+
+		oCell = oRow.insertCell();
+		oCell.innerHTML = strField;
+		
+		oCell = oRow.insertCell();
+		oCell.innerHTML = "<select id='operator'>\
+  <option value='like' selected>类似</option>\
+  <option value='>'>大于</option>\
+  <option value='<'>小于</option>\
+  <option value='='>等于</option>\
+  <option value='!='>不等于</option>\
+</select>";
+		oCell = oRow.insertCell();
+		oCell.innerHTML = "<input type='text' id='fieldValue' size='10' value='0'>";
+
+		oCell = oRow.insertCell();
+		oCell.innerHTML = "<select name='select'>\
+  <option value=' ' selected>&nbsp;</option>\
+  <option value=')'>)</option>\
+  <option value='))'>))</option>\
+  <option value=')))'>)))</option>\
+</select>";
+
+		oCell = oRow.insertCell();
+		oCell.innerHTML = "<select id='logic'>\
+  <option value=' ' selected>&nbsp;</option>\
+  <option value='and'>并且</option>\
+  <option value='or'>或者</option>\
+  <option value='not'>不是</option>\
+</select>";
+
+		oCell = oRow.insertCell();
+		oCell.innerHTML = '<image src="../images/delete.gif" class="LL" onclick="delItem('+oRow.rowIndex+')"/>';
+	}
+	function delItem(index) {
+		detailTable.deleteRow(index);
+		var rowNum = detailTable.rows.length;
+		var rowlength = detailTable.rows[0].cells.length;
+		for (i=index; i<rowNum; i++) {
+			detailTable.rows(i).cells(0).innerHTML = i;
+			detailTable.rows(i).cells(rowlength-1).innerHTML = '<image src="../images/delete.gif" class="LL" onclick="delItem('+i+')"/>';
+		}
+	}
+	function query() {
+		alert("生成的sql语句");
+	}
+</script>
+</head>
+
+<body onLoad="init()">
+<form action="">
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="30px" nowrap class="toolbar">&nbsp;</td>
+    <td width="40px" nowrap class="toolbar" onMouseOver="OMO()" onMouseOut="OMOU()" onClick="addItem()"><img src="../images/add.gif">增加</td>
+    <td width="20px" nowrap class="toolbar">|</td>
+    <td width="40px" nowrap class="toolbar" onMouseOver="OMO()" onMouseOut="OMOU()" onClick="query()"><img src="../images/search.gif">查询</td>
+    <td width="20px" nowrap class="toolbar">|</td>
+    <td width="40px" nowrap class="toolbar" onMouseOver="OMO()" onMouseOut="OMOU()" onClick="window.close()"><img src="../images/cancel.gif">取消</td>
+	<td nowrap class="toolbar">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%"  border="0" align="center" cellspacing="1" id="detailTable">
+  <tr>
+    <td class="title1">括号</td>
+    <td class="title1">字段</td>
+    <td class="title1">操作</td>
+    <td class="title1">内容</td>
+    <td class="title1">括号</td>
+    <td class="title1">逻辑</td>
+    <td class="title1">&nbsp;</td>
+  </tr>
+</table>
+</form>
+
+</body>
+</html>

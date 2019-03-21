@@ -1,0 +1,172 @@
+<html>
+<head>
+<title>采购单</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="../script/common.js" ></script>
+<script type="text/javascript" src="../script/productDiv.js" ></script>
+
+<style type="text/css">
+	div.product{
+		position: absolute;
+		top:2px;
+		left: 2px;
+		width:100%;
+		height: 98%;
+		background-color: #fffffe;
+	}
+
+</style>
+<script language="javascript">
+	function test(){
+		document.getElementById("con").style.display="block";
+		}
+</script>
+</head>
+<div >
+</div>
+<body onLoad="init()">
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td nowrap class="title1">您的位置：工作台面－－销售管理－－销售单添加</td>
+  </tr>
+</table>
+<div class="formVisiblitly" id="formDiv"></div>
+<form action="" name="mainFrm">
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="30px" nowrap class="toolbar">&nbsp;</td>
+    <td width="70px" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="document.mainFrm.mx.click()"><img src="../images/add.gif">增加明细</td>
+    <td width="20px" nowrap class="toolbar">|</td>
+    <td width="40px" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="document.mainFrm.bc.click()"><img src="../images/save.gif">保存</td>
+    <td width="20px" nowrap class="toolbar">|</td>
+    <td width="40px" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="document.mainFrm.ts.click()"><img src="../images/send.gif">提审</td>
+    <td width="20px" nowrap class="toolbar">|</td>
+    <td width="40px" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="document.mainFrm.dy.click()"><img src="../images/search.gif">打印</td>
+    <td width="20px" nowrap class="toolbar">|</td>
+    <td width="40px" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="document.mainFrm.cz.click()"><img src="../images/reset.gif">重置</td>
+    <td width="20px" nowrap class="toolbar">|</td>
+    <td width="40px" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="document.mainFrm.gb.click()"><img src="../images/cancel.gif">关闭</td>
+	<td nowrap class="toolbar">&nbsp;</td>
+  </tr>
+</table>
+
+<table id="headTable" width="100%"  border="0" align="center" class="a1">
+  <tr align="justify">
+    <td>销售单编号</td>
+    <td><input type="text" value="T000000001" size="15"/>
+      <span class="requred_symbol">*</span></td>
+    <td>创建时间</td>
+    <td><input type="text" size="15"/>
+      <span class="requred_symbol">*</span></td>
+    <td>客户名称</td>
+    <td><input type="text" size="15" onBlur="test()"/>
+      <span class="requred_symbol">*</span>
+      	<div style="border:#3FF 1px solid; height:50px; display:none; position:absolute;  width:120px; background-color:#090;" id="con">
+        
+        </div>
+      </td>
+    <td>创建用户</td>
+    <td><input name="textfield" type="text" size="15">
+        <span class="requred_symbol">*</span></td>
+  </tr>
+  <tr align="justify">
+    <td>附加费用</td>
+    <td><input type="text" size="15"/>
+        <span class="requred_symbol">*</span></td>
+    <td>产品总价</td>
+    <td><input type="text" size="15"/></td>
+    <td>付款方式</td>
+    <td>
+    	<select>
+        	<option>货到付款</option>
+            <option>预付款发货</option>
+            <option>款到发货</option>
+        </select>
+    </td>
+    <td>最低预付金额</td>
+    <td><input name="text" type="text" size="15"/></td>
+   </tr>
+  <tr>
+    <td class="title2"></td>
+  </tr>
+</table>
+<table width="100%"  border="0" align="center" cellspacing="1" id="detailTable">
+  <tr>
+    <td class="toolbar">&nbsp;</td>
+    <td class="toolbar"> 商品编码 </td>
+    <td class="toolbar"> 商品名称 </td>
+    <td class="toolbar"> 产品数量 </td>
+    <td class="toolbar">数量单位</td>
+    <td class="toolbar">销售单价</td>
+    <td class="toolbar">销售明细总价</td>
+    <td class="toolbar">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%"  border="0" align="center" cellspacing="1">
+  <tr>
+    <td class="title2"></td>
+  </tr>
+</table>
+<br>
+<div align="center">
+    <input type="button" id="mx" value="增加明细" onClick="addItem()"/>
+    <input type="submit" id="bc" value="保存"/>
+    <input type="button" id="dy" value="打印" onClick="window.print()"/>
+    <input name="reset"  id="cz" value="重置" type="reset"/>
+    <input type="button" id="gb" value="关闭" onClick="window.close()"/>
+</div>
+
+<!-- div -->
+ 
+<div id="productDiv" style="visibility: hidden;" class="product">
+	<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+	  <tr>
+	    <td width="30px" nowrap="nowrap"="nowrap="nowrap"" class="toolbar">&nbsp;</td>
+	    <td width="40px" nowrap="nowrap" class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="choiceAnonymous('productDiv')"><img src="../images/confirm.gif">确定</td>
+	    <td width="20px" nowrap="nowrap" class="toolbar">|</td>
+	    <td width="40px" nowrap="nowrap" class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)" onClick="hiddenDiv()"><img src="../images/cancel.gif">取消</td>
+		<td align="center" valign="middle" nowrap="nowrap" class="toolbar">&nbsp;</td>
+	  </tr>
+	</table>
+	<table width="100%"  border="0" align="center" cellspacing="1" class="a1" id="spxxTable">
+	  <tr>
+	    <td class="title1">选择</td>
+	    <td class="title1">商品编码</td>
+	    <td class="title1">商品名称</td>
+	    <td class="title1">商品体积</td>
+	    <td class="title1">商品重量</td>
+	  </tr>
+	  <tr onClick="selectItem(this)" onMouseOver="OMO1(event)" onDblClick="choice(1)" align="center">
+	    <td>&nbsp;</td>
+	    <td>00001</td>
+	    <td>光明牛奶</td>
+	    <td>250ml</td>
+	    <td>&nbsp;</td>
+	  </tr>
+	  <tr onClick="selectItem(this)" onMouseOver="OMO1(event)" onDblClick="choice(2)" align="center">
+	    <td>&nbsp;</td>
+	    <td>00002</td>
+	    <td>西湖大米</td>
+	    <td>&nbsp;</td>
+	    <td>10kg</td>
+	  </tr>
+	  <tr onClick="selectItem(this)" onMouseOver="OMO1(event)"  ondblclick="choice(3)" align="center">
+	    <td>&nbsp;</td>
+	    <td>00003</td>
+	    <td>金龙鱼色拉油</td>
+	    <td>10L</td>
+	    <td>8kg</td>
+	  </tr>
+	   <tr>
+	    <td class="title2"></td>
+	  </tr>
+	</table>
+</div>
+
+
+</form>
+ 
+<iframe width=174 height=189 name="gToday:normal:agenda.js" id="gToday:normal:agenda.js" src="../common/calendar/ipopeng.htm" scrolling="no" frameborder="0" style="visibility:visible; z-index:999; position:absolute; left:-500px; top:0px;"></iframe>
+</body>
+</html>
