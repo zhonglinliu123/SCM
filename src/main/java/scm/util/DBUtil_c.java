@@ -6,7 +6,7 @@ public class DBUtil_c {
 
 	private static String url = "jdbc:mysql://localhost:3306/scm";
 	private static String user = "root";
-	private static String password = "123456";
+	private static String password = "admin";
 	
 	static {
 		try {

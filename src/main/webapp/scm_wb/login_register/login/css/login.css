@@ -83,6 +83,7 @@ margin-right: 25px;
   background: -moz-linear-gradient(#3fb9ff, #099be7, #229de3);
   background: linear-gradient(#3fb9ff, #099be7, #229de3);
   border-radius: 20px;
+  cursor:pointer;
 }
 #login:hover{
   background: -webkit-linear-gradient(#229de3, #099be7,#3fb9ff);

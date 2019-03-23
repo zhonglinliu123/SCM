@@ -12,15 +12,13 @@
 		<div id="sky"></div>
 		<div id="head"></div>
 		<div id="middle">
-			<form action="login" method="post">
-				<ul style="text-align: center;">
-					<li style="font-size: 48px">供应链管理系统</li>
-					<li><input class="name" name="username" placeholder="请输入用户名"></li>
-					<li><input type="password" name="password" class="pwd" placeholder="请输入密码"></li>
-					<li><button id="login">立即登录</button></li>
-					<li><span id="err" style="display: inline-block;">密码错误</span></li>
-				</ul>
-			</form>
+			<ul style="text-align: center;">
+				<li style="font-size: 48px">供应链管理系统</li>
+				<li><input class="name" name="username" placeholder="请输入用户名"></li>
+				<li><input type="password" name="pwd" class="pwd" placeholder="请输入密码"></li>
+				<li><button id="login" onclick="login()">立即登录</button></li>
+				<li><span id="err" style="display: inline-block;">密码错误</span></li>
+			</ul>
 		</div>
 		<div id="footer"></div>
 		<div id="cloud"></div>

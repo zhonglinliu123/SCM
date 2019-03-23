@@ -11,6 +11,24 @@
         <artifactId>fastjson</artifactId>
         <version>1.2.13</version>
     </dependency>
+    <dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>servlet-api</artifactId>
+    	<version>2.5</version>
+    	<scope>provided</scope>
+	</dependency>
+	<dependency>
+    	<groupId>javax.servlet.jsp</groupId>
+    	<artifactId>jsp-api</artifactId>
+    	<version>2.2</version>
+    	<scope>provided</scope>
+	</dependency>
+	
+	<dependency>
+    	<groupId>mysql</groupId>
+    	<artifactId>mysql-connector-java</artifactId>
+    	<version>5.1.25</version>
+	</dependency> 
   </dependencies>
   
 </project>
