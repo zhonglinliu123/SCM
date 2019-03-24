@@ -1,6 +1,9 @@
 package scm.model;
 
-public class Scmuser {
+import java.io.Serializable;
+
+public class Scmuser implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private String account;
 	private String password;
 	private String name;

@@ -11,7 +11,11 @@ function login(){
              url: "/SCM/LoginServlet",
              data: {account:account, password:password},
              success: function(data){
-                alert(data);
+                if(data == "登陆成功"){
+                	location.href="/SCM/scm_wb/main_frame/index.htm";
+                }else{
+                	$("#err").show();
+                }
              }
 	     });
     }
