@@ -27,11 +27,11 @@
 					<img src="/SCM/scm_wb/images/search.gif">查询
 				</div>
 				<div style="float:left;margin-top:5px;margin-left:20px;">
-					账号<input type="text" id="search_account" />
-					密码<input type="text" id="search_password" />
-					名字<input type="text" id="search_name" />
-					创建日期<input type="text" id="search_createDate" />
-					权限<input type="text" id="search_status" />
+					账号<input type="text" id="search_account" style="width:120px;"/>
+					密码<input type="text" id="search_password" style="width:120px;"/>
+					名字<input type="text" id="search_name" style="width:120px;"/>
+					创建日期<input type="text" id="search_createDate" style="width:120px;"/>
+					权限<input type="text" id="search_status" style="width:120px;"/>
 				</div>	
 			</div>
 			<table width="100%"  border="0" align="center" cellspacing="1" class="c">
@@ -65,7 +65,7 @@
 			<table width="100%"  border="0" align="center" cellspacing="1" class="c">
 		 		 <tr>
 				    <td align="center">用户账号</td>
-				    <td align="center"><input id="account" type="text" /></td>
+				    <td align="center"><input id="account" type="text"/></td>
 				 </tr>
 				 <tr>
 		    		<td align="center">用户名</td>
