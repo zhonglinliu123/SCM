@@ -19,7 +19,7 @@ var OutlookBar={
     {"text":"采购管理", "panelCSS":"panel" ,"textCSS":"textpanel",
        "items":
        [
-          {"text":"供应商管理","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/1.gif',    "url":'gztm/vender.htm', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
+          {"text":"供应商管理","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/1.gif',    "url":'/SCM/scm_wb/purchase_manage/supplier_manage.jsp', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
           {"text":"添加采购单","textCSS":"a1","image":'/SCM/scm_wb/images/pic/2.gif',    "url":'gztm/th_detail.htm', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
           {"text":"采购单了结","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/3.gif',    "url":'gztm/over.htm', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
           {"text":"采购单查询","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/4.gif',    "url":'gztm/js.htm', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},

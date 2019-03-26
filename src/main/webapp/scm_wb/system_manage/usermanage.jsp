@@ -20,10 +20,10 @@
 			  	</tr>
 			</table>
 			<div style="width:100%;height:25px;background-color:#8BBFE5;">
-				<div style="float:left;margin-top:5px;margin-left:10px;" onclick="add()">
+				<div style="float:left;margin-top:5px;margin-left:10px;cursor:pointer;" onclick="add()">
 					<img src="/SCM/scm_wb/images/new.gif">新增
 				</div>
-				<div style="float:left;margin-top:5px;margin-left:10px;" onclick="query()">
+				<div style="float:left;margin-top:5px;margin-left:10px;cursor:pointer;" onclick="query()">
 					<img src="/SCM/scm_wb/images/search.gif">查询
 				</div>
 				<div style="float:left;margin-top:5px;margin-left:20px;">
@@ -63,7 +63,7 @@
 		
 		<div id="add" class="hidd">
 			<table width="100%"  border="0" align="center" cellspacing="1" class="c">
-		 		 <tr>
+		 		<tr>
 				    <td align="center">用户账号</td>
 				    <td align="center"><input id="account" type="text"/></td>
 				 </tr>
@@ -96,7 +96,7 @@
 		    			<div id="jiaoyan" style="color:red;"></div>
 		    		</td>
 		    	</tr>
-		</table>
+			</table>
 		<div type="hidden" id="up_or_add"></div>	
 		</div>
 		<iframe width=174 height=189 name="gToday:normal:agenda.js" id="gToday:normal:agenda.js" src=/SCM/scm_wb/common/calendar/ipopeng.htm scrolling="no" frameborder="0" style="visibility:visible; z-index:999; position:absolute; left:-500px; top:0px;"></iframe>
