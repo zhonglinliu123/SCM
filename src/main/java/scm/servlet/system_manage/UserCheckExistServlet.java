@@ -24,9 +24,9 @@ public class UserCheckExistServlet extends HttpServlet{
 		}
 		PrintWriter out = response.getWriter();
 		if(flag == true) {
-			out.print("¿ÉÒÔ´´½¨");
+			out.print("å¯ä»¥åˆ›å»º");
 		}else {
-			out.print("ÒÑ´æÔÚ");
+			out.print("å·²å­˜åœ¨");
 		}
 		out.flush();
 	}
