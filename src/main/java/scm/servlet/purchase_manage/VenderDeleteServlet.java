@@ -36,9 +36,9 @@ public class VenderDeleteServlet extends HttpServlet{
 		if(flag) {
 			HttpSession session = request.getSession();
 			session.setAttribute("allvenderlist", allvenderlist);
-			out.print("É¾³ı³É¹¦");
+			out.print("åˆ é™¤æˆåŠŸ");
 		}else {
-			out.print("ÓĞÆäËûµÄÒÀÀµ´æÔÚ£¬²»ÄÜÉ¾³ı");
+			out.print("æœ‰å…¶ä»–çš„ä¾èµ–å­˜åœ¨ï¼Œä¸èƒ½åˆ é™¤");
 		}
 		out.flush();
 	}

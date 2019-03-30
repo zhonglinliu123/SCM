@@ -18,7 +18,7 @@ public class ScmUserDao {
 	private ResultSet rs;
 	public ScmUserDao() {}
 
-	// Ğ£ÑéÕËºÅÃÜÂëÊÇ·ñÕıÈ·	
+	// æ ¡éªŒè´¦å·å¯†ç æ˜¯å¦æ­£ç¡®	
 	public Scmuser checkUser(String account,String password) throws SQLException {
 		Scmuser user = null;
 		String sql = "select * from scmuser where account = ? and password = ?";
@@ -36,7 +36,7 @@ public class ScmUserDao {
 		close(conn,pstat,stat,rs);
 		return user;
 	}
-	//²éÑ¯ËùÓĞÓÃ»§
+	//æŸ¥è¯¢æ‰€æœ‰ç”¨æˆ·
 	public List<Scmuser> selectAllUser() throws SQLException{
 		List<Scmuser> userlist= new ArrayList<Scmuser>();
 		Scmuser user = null;
@@ -56,7 +56,7 @@ public class ScmUserDao {
 		close(conn,pstat,stat,rs);
 		return userlist;
 	}
-	//É¾³ıÓÃ»§
+	//åˆ é™¤ç”¨æˆ·
 	public void userDelete(String account) throws SQLException {
 		String sql = "delete from scmuser where account = ?";
 		conn = DBUtil_c.getConnection();
@@ -65,7 +65,7 @@ public class ScmUserDao {
 		pstat.executeUpdate();
 		close(conn,pstat,stat,rs);
 	}
-	//ĞŞ¸ÄÓÃ»§
+	//ä¿®æ”¹ç”¨æˆ·
 	public void userUpdate(String account,String password,String name,String createDate,String status) throws SQLException {
 		String sql = "update scmuser set password=?,name=?,createDate=?,status=? where account = ?";
 		conn = DBUtil_c.getConnection();
@@ -78,7 +78,7 @@ public class ScmUserDao {
 		pstat.executeUpdate();
 		close(conn,pstat,stat,rs);
 	}
-	//ĞÂÔöÓÃ»§
+	//æ–°å¢ç”¨æˆ·
 	public void userAdd(String account,String password,String name,String createDate,String status) throws SQLException {
 		String sql = "insert into scmuser(account,password,name,createDate,status) values(?,?,?,?,?)";
 		conn = DBUtil_c.getConnection();
@@ -91,7 +91,7 @@ public class ScmUserDao {
 		pstat.executeUpdate();
 		close(conn,pstat,stat,rs);
 	}
-	//²éÑ¯ÓÃ»§
+	//æŸ¥è¯¢ç”¨æˆ·
 	public List<Scmuser> selectSomeUser(String account,String password,String name,String createDate,String status) throws SQLException{
 		List<Scmuser> userlist= new ArrayList<Scmuser>();
 		Scmuser user = null;
@@ -122,7 +122,7 @@ public class ScmUserDao {
 		close(conn,pstat,stat,rs);
 		return userlist;
 	}
-	//Ğ£ÑéÕËºÅÊÇ·ñ´æÔÚ
+	//æ ¡éªŒè´¦å·æ˜¯å¦å­˜åœ¨
 	public boolean checkUserExist(String account) throws SQLException {
 		boolean flag = true;
 		String sql = "select password from scmuser where account = ?";

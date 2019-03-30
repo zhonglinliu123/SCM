@@ -28,11 +28,11 @@ public class LoginServlet extends HttpServlet{
 		}
 		PrintWriter out = response.getWriter();
 		if(user == null) {
-			out.print("ÕËºÅ»òÃÜÂëÊäÈë´íÎó£¡");
+			out.print("Ã•Ã‹ÂºÃ…Â»Ã²ÃƒÃœÃ‚Ã«ÃŠÃ¤ÃˆÃ«Â´Ã­ÃÃ³Â£Â¡");
 		}else {
 			HttpSession session = request.getSession(); 
 			session.setAttribute("user", user);
-			out.print("µÇÂ½³É¹¦");
+			out.print("ÂµÃ‡Ã‚Â½Â³Ã‰Â¹Â¦");
 		}
 		out.flush();
 	}

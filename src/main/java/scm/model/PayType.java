@@ -1,13 +1,13 @@
 package scm.model;
 
-//付款方式
+//浠樻鏂瑰紡
 public enum PayType {
-	PY1(1,"货到付款"),
-    PY2(2,"款到发货"),
-    PY3(3,"预付款到发货");
+	PY1(1,"璐у埌浠樻"),
+    PY2(2,"娆惧埌鍙戣揣"),
+    PY3(3,"棰勪粯娆惧埌鍙戣揣");
 	
 	private int value;
-    private String desc;//中文描述
+    private String desc;//涓枃鎻忚堪
     
     private PayType(int value,String desc){
     	this.value=value;
@@ -22,7 +22,7 @@ public enum PayType {
     	return value;
     }
     
-    //根据id返回desc
+    //鏍规嵁id杩斿洖desc
     public static String getDesc(int i) {
       String desc = null;
 	  for (PayType day:PayType.values()) {
@@ -33,7 +33,7 @@ public enum PayType {
       }
 	  return desc;
     }
-  //根据desc返回id
+  //鏍规嵁desc杩斿洖id
     public static int getId(String desc) {
       int id = -1;
 	  for (PayType day:PayType.values()) {

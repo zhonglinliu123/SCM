@@ -1,15 +1,15 @@
 package scm.model;
 
-// ´¦Àí×´Ì¬
+// å¤„ç†çŠ¶æ€
 public enum Status {
-	S1(1,"ĞÂÔö"),
-	S2(2,"ÒÑÊÕ»õ"),
-	S3(3,"ÒÑ¸¶¿î"),
-	S4(4,"ÒÑÁË½á"),
-	S5(5,"ÒÑÔ¤¸¶");
+	S1(1,"æ–°å¢"),
+	S2(2,"å·²æ”¶è´§"),
+	S3(3,"å·²ä»˜æ¬¾"),
+	S4(4,"å·²äº†ç»“"),
+	S5(5,"å·²é¢„ä»˜");
 	
 	private int value;
-	private String desc;//ÖĞÎÄÃèÊö
+	private String desc;//ä¸­æ–‡æè¿°
   
 	private Status(int value,String desc){
 	  	this.value=value;
@@ -24,7 +24,7 @@ public enum Status {
 		return value;
 	}
   
-  //¸ù¾İid·µ»Ødesc
+  //æ ¹æ®idè¿”å›desc
   public static String getDesc(int i) {
     String desc = null;
 	  for (Status s:Status.values()) {
@@ -35,7 +35,7 @@ public enum Status {
     }
 	  return desc;
   }
-//¸ù¾İdesc·µ»Øid
+//æ ¹æ®descè¿”å›id
   public static int getId(String desc) {
     int id = -1;
 	  for (Status s:Status.values()) {

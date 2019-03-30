@@ -18,7 +18,7 @@ public class VenderDao {
 	private ResultSet rs;
 	public VenderDao() {}
 
-	//²éÑ¯ËùÓĞ¹©Ó¦ÉÌ
+	//æŸ¥è¯¢æ‰€æœ‰ä¾›åº”å•†
 	public List<Vender> selectAllVender() throws SQLException{
 		List<Vender> venderlist= new ArrayList<Vender>();
 		Vender vender = null;
@@ -43,7 +43,7 @@ public class VenderDao {
 		close(conn,pstat,stat,rs);
 		return venderlist;
 	}
-	//Ğ£Ñé¹©Ó¦ÉÌÄÜ·ñ±»É¾³ı£¬(ÓĞÃ»ÓĞÆäËû±í)
+	//æ ¡éªŒä¾›åº”å•†èƒ½å¦è¢«åˆ é™¤ï¼Œ(æœ‰æ²¡æœ‰å…¶ä»–è¡¨)
 	public boolean checkVenderCanDelete(String vendercode) throws SQLException {
 		boolean flag = true;
 		String sql = "select poid from pomain where vendercode = ?";
@@ -57,7 +57,7 @@ public class VenderDao {
 		close(conn,pstat,stat,rs);
 		return flag;
 	}
-	//É¾³ı¹©Ó¦ÉÌ
+	//åˆ é™¤ä¾›åº”å•†
 	public void venderDelete(String vendercode) throws SQLException {
 		String sql = "delete from vender where vendercode = ?";
 		conn = DBUtil_c.getConnection();
@@ -66,7 +66,7 @@ public class VenderDao {
 		pstat.executeUpdate();
 		close(conn,pstat,stat,rs);
 	}
-	//ĞŞ¸Ä¹©Ó¦ÉÌ
+	//ä¿®æ”¹ä¾›åº”å•†
 	public void venderUpdate(String code,String password,String name,String contactor,String address,String postcode,
 			String tel,String fax,String createDate) throws SQLException {
 		String sql = "update vender set password=?,name=?,contactor=?,address=?,postcode=?,tel=?,fax=?,createDate=? where vendercode = ?";
@@ -84,7 +84,7 @@ public class VenderDao {
 		pstat.executeUpdate();
 		close(conn,pstat,stat,rs);
 	}
-	//ĞÂÔö¹©Ó¦ÉÌ
+	//æ–°å¢ä¾›åº”å•†
 	public void venderAdd(String code,String password,String name,String contactor,String address,String postcode,
 			String tel,String fax,String createDate) throws SQLException {
 		String sql = "insert into vender(vendercode,password,name,contactor,address,postcode,tel,fax,createDate) values(?,?,?,?,?,?,?,?,?)";
@@ -102,7 +102,7 @@ public class VenderDao {
 		pstat.executeUpdate();
 		close(conn,pstat,stat,rs);
 	}
-	//²éÑ¯¹©Ó¦ÉÌ
+	//æŸ¥è¯¢ä¾›åº”å•†
 	public List<Vender> selectSomeVender(String code,String name) throws SQLException{
 		List<Vender> venderlist= new ArrayList<Vender>();
 		Vender vender = null;
@@ -132,7 +132,7 @@ public class VenderDao {
 		close(conn,pstat,stat,rs);
 		return venderlist;
 	}
-	//Ğ£Ñé¹©Ó¦ÉÌ±àºÅÊÇ·ñ´æÔÚ
+	//æ ¡éªŒä¾›åº”å•†ç¼–å·æ˜¯å¦å­˜åœ¨
 	public boolean checkVenderExist(String code) throws SQLException {
 		boolean flag = true;
 		String sql = "select password from vender where vendercode = ?";

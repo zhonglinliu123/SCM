@@ -28,25 +28,25 @@ public class PermissionCheckFilter implements Filter{
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
 		
-		//¸ù¾İÇëÇóÂ·¾¶Çø·Ö×ÊÔ´
-		String uri = req.getRequestURI();	///ÏîÄ¿Ãû³Æ/×ÊÔ´Â·¾¶
+		//æ ¹æ®è¯·æ±‚è·¯å¾„åŒºåˆ†èµ„æº
+		String uri = req.getRequestURI();	///é¡¹ç›®åç§°/èµ„æºè·¯å¾„
 		HttpSession session = req.getSession();
 		Scmuser user = (Scmuser) session.getAttribute("user");
 		
 		if(uri.contains("/usermanage.jsp")) {
-			if(user != null && "¹ÜÀíÔ±".equals(user.getStatus())) {
-				//±íÊ¾µ±Ç°ÓÃ»§ÊÇ¹ÜÀíÔ±
+			if(user != null && "ç®¡ç†å‘˜".equals(user.getStatus())) {
+				//è¡¨ç¤ºå½“å‰ç”¨æˆ·æ˜¯ç®¡ç†å‘˜
 				chain.doFilter(request, response);
 			}else {
-				String path = req.getContextPath(); //ÏîÄ¿Ãû³Æ
+				String path = req.getContextPath(); //é¡¹ç›®åç§°
 				resp.sendRedirect(path+"/scm_wb/no_permission.html");
 			}
 		}else if(uri.contains("/purchase_manage/")) {
-			if(user != null && "²É¹ºÔ±".equals(user.getStatus())) {
-				//±íÊ¾µ±Ç°ÓÃ»§ÊÇ¹ÜÀíÔ±
+			if(user != null && "é‡‡è´­å‘˜".equals(user.getStatus())) {
+				//è¡¨ç¤ºå½“å‰ç”¨æˆ·æ˜¯ç®¡ç†å‘˜
 				chain.doFilter(request, response);
 			}else {
-				String path = req.getContextPath(); //ÏîÄ¿Ãû³Æ
+				String path = req.getContextPath(); //é¡¹ç›®åç§°
 				resp.sendRedirect(path+"/scm_wb/no_permission.html");
 			}
 		}else {

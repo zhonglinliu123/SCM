@@ -20,7 +20,7 @@ public class PurchaseOrderDao {
 	private ResultSet rs;
 	public PurchaseOrderDao() {}
 
-	//²éÑ¯ËùÓĞ²É¹ºµ¥
+	//æŸ¥è¯¢æ‰€æœ‰é‡‡è´­å•
 	public List<PurchaseOrderMain> selectAllPurchaseOrder() throws SQLException{
 		List<PurchaseOrderMain> purchaseOrderMainList= new ArrayList<PurchaseOrderMain>();
 		PurchaseOrderMain purchaseOrderMain = null;
@@ -51,7 +51,7 @@ public class PurchaseOrderDao {
 		close(conn,pstat,stat,rs);
 		return purchaseOrderMainList;
 	}
-	// ²éÑ¯³ö¿ÉÒÔÁË½áµÄ²É¹ºµ¥
+	// æŸ¥è¯¢å‡ºå¯ä»¥äº†ç»“çš„é‡‡è´­å•
 	public List<PurchaseOrderMain> selectEndPurchaseOrder() throws SQLException{
 		List<PurchaseOrderMain> purchaseOrderMainList= new ArrayList<PurchaseOrderMain>();
 		PurchaseOrderMain purchaseOrderMain = null;
@@ -95,7 +95,7 @@ public class PurchaseOrderDao {
 		close(conn,pstat,stat,rs);
 		return purchaseOrderMainList;
 	}
-	//¸ù¾İ¹©Ó¦ÉÌ±àºÅvendercodeµÃµ½¹©Ó¦ÉÌÃû³Ævendername
+	//æ ¹æ®ä¾›åº”å•†ç¼–å·vendercodeå¾—åˆ°ä¾›åº”å•†åç§°vendername
 	public String getVenderName(String venderCode) throws SQLException {
 		String name = null;
 		String sql = "select name from vender where venderCode = ?";
@@ -107,7 +107,7 @@ public class PurchaseOrderDao {
 		}
 		return name;
 	}
-	//¸ù¾İ²É¹ºµ¥ºÅµÃµ½²É¹ºµ¥Ã÷Ï¸
+	//æ ¹æ®é‡‡è´­å•å·å¾—åˆ°é‡‡è´­å•æ˜ç»†
 	public  List<PurchaseOrderItem> selectPurchaseOrderItem(String poid) throws SQLException{
 		List<PurchaseOrderItem> purchaseOrderItemList= new ArrayList<PurchaseOrderItem>();
 		PurchaseOrderItem purchaseOrderItem = null;
@@ -136,7 +136,7 @@ public class PurchaseOrderDao {
 		close(conn,pstat,stat,rs);
 		return purchaseOrderItemList;
 	}
-	//¸ù¾İproductCodeµÃµ½productName
+	//æ ¹æ®productCodeå¾—åˆ°productName
 	public String getproductName(String productCode) throws SQLException {
 		String name = null;
 		String sql = "select name from product where productCode = ?";
@@ -149,7 +149,7 @@ public class PurchaseOrderDao {
 		}
 		return name;
 	}
-	//Ìí¼Ó²É¹ºµ¥
+	//æ·»åŠ é‡‡è´­å•
 	public void addPurchaseOrder(String poid,String createTime,String venderCode,String account,
 			int tipFee,int productTotal,String remark,int prePayFee,int paytype) throws SQLException {
 		String sql = "insert into pomain(poid,venderCode,account,createTime,tipFee,productTotal,remark,prePayFee,paytype,pototal,Status) values(?,?,?,?,?,?,?,?,?,0,0)";
@@ -167,7 +167,7 @@ public class PurchaseOrderDao {
 		pstat.executeUpdate();
 		close(conn,pstat,stat,rs);
 	}
-	//²É¹ºµ¥ÁË½á
+	//é‡‡è´­å•äº†ç»“
 	public void endPurchaseOrder(String poid) throws SQLException {
 		String sql = "update pomain set status=4 where poid=?";
 		conn = DBUtil_c.getConnection();
@@ -176,7 +176,7 @@ public class PurchaseOrderDao {
 		pstat.executeUpdate();
 		close(conn,pstat,stat,rs);
 	}
-	//°´Ìõ¼ş²éÑ¯²É¹ºµ¥
+	//æŒ‰æ¡ä»¶æŸ¥è¯¢é‡‡è´­å•
 	public List<PurchaseOrderMain> searchPurchaseOrder(String poids,String venderCodes,int payTypes,int status) throws SQLException{
 		List<PurchaseOrderMain> purchaseOrderMainList= new ArrayList<PurchaseOrderMain>();
 		PurchaseOrderMain purchaseOrderMain = null;

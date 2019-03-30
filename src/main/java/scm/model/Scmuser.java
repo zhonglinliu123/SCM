@@ -2,7 +2,7 @@ package scm.model;
 
 import java.io.Serializable;
 
-//�û�
+//ÓÃ»§
 public class Scmuser implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String account;

@@ -31,7 +31,7 @@ public class VenderUpdateServlet extends HttpServlet{
 		VenderDao vd = new VenderDao();
 		List<Vender> allvenderlist = new ArrayList<Vender>();
 		try {
-			if(up_or_add.equals("�޸�")) {
+			if(up_or_add.equals("ÐÞ¸Ä")) {
 				vd.venderUpdate(code,password,name,contactor,address,postcode,tel,fax,createDate);
 			}else{
 				vd.venderAdd(code,password,name,contactor,address,postcode,tel,fax,createDate);

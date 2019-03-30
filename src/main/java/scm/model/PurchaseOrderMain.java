@@ -2,7 +2,7 @@ package scm.model;
 
 import java.io.Serializable;
 
-//采购单主信息
+//閲囪喘鍗曚富淇℃伅
 public class PurchaseOrderMain implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String poid;

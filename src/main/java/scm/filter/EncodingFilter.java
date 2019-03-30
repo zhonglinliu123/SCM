@@ -17,18 +17,18 @@ public class EncodingFilter implements Filter{
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		encoding = filterConfig.getInitParameter("encoding");    //得到web.xml中的编码,要改编码修改配置文件就行,不用再修改类
+		encoding = filterConfig.getInitParameter("encoding");    //寰楀埌web.xml涓殑缂栫爜,瑕佹敼缂栫爜淇敼閰嶇疆鏂囦欢灏辫,涓嶇敤鍐嶄慨鏀圭被
 		if(encoding == null) {
 			encoding = "utf-8";
 		}
 
 	}
 
-	//实现编码设置
+	//瀹炵幇缂栫爜璁剧疆
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		
-		//设置请求和响应的编码
+		//璁剧疆璇锋眰鍜屽搷搴旂殑缂栫爜
 		request.setCharacterEncoding(encoding);
 		response.setCharacterEncoding(encoding);
 		

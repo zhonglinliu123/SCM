@@ -28,7 +28,7 @@ public class UserUpdateServlet extends HttpServlet{
 		ScmUserDao sud = new ScmUserDao();
 		List<Scmuser> alluserlist = new ArrayList<Scmuser>();
 		try {
-			if(up_or_add.equals("�޸�")) {
+			if(up_or_add.equals("ÐÞ¸Ä")) {
 				sud.userUpdate(account, password, name, createDate, status);
 			}else{
 				sud.userAdd(account, password, name, createDate, status);
