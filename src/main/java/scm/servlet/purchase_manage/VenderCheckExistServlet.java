@@ -29,6 +29,7 @@ public class VenderCheckExistServlet extends HttpServlet{
 		}else {
 			out.print("ÒÑ´æÔÚ");
 		}
+		out.flush();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{

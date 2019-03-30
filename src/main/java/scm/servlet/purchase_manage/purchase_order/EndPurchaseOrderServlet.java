@@ -1,34 +1,27 @@
-package scm.servlet.system_manage;
+package scm.servlet.purchase_manage.purchase_order;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import scm.dao.ScmUserDao;
+import scm.dao.PurchaseOrderDao;
 
-@WebServlet("/UserCheckExistServlet")
-public class UserCheckExistServlet extends HttpServlet{
+@WebServlet("/EndPurchaseOrderServlet")
+public class EndPurchaseOrderServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		String account = request.getParameter("account");
-		ScmUserDao sud = new ScmUserDao();
-		boolean flag = true;
+		String poid = request.getParameter("poid");
+		PurchaseOrderDao pod = new PurchaseOrderDao();
 		try {
-			flag = sud.checkUserExist(account);
+			 pod.endPurchaseOrder(poid);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		PrintWriter out = response.getWriter();
-		if(flag == true) {
-			out.print("可以创建");
-		}else {
-			out.print("已存在");
-		}
-		out.flush();
+		response.sendRedirect("/SCM/SelectEndPurchaseOrderServlet");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{

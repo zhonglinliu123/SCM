@@ -40,6 +40,7 @@ public class VenderDeleteServlet extends HttpServlet{
 		}else {
 			out.print("有其他的依赖存在，不能删除");
 		}
+		out.flush();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{

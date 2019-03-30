@@ -1,34 +1,38 @@
-package scm.servlet.system_manage;
+package scm.servlet.purchase_manage.purchase_order;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import scm.dao.ScmUserDao;
+import com.alibaba.fastjson.JSONArray;
 
-@WebServlet("/UserCheckExistServlet")
-public class UserCheckExistServlet extends HttpServlet{
+import scm.dao.VenderDao;
+import scm.model.Vender;
+
+@WebServlet("/ShowVenderServlet")
+public class ShowVenderServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		String account = request.getParameter("account");
-		ScmUserDao sud = new ScmUserDao();
-		boolean flag = true;
+		VenderDao vd = new VenderDao();
+		List<Vender> venderList = new ArrayList<Vender>();
 		try {
-			flag = sud.checkUserExist(account);
+			venderList = vd.selectAllVender();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		PrintWriter out = response.getWriter();
-		if(flag == true) {
-			out.print("可以创建");
-		}else {
-			out.print("已存在");
-		}
+		
+	    PrintWriter out = response.getWriter();
+	    Object jsonStr = JSONArray.toJSON(venderList);
+		out.print(jsonStr.toString());
 		out.flush();
+	    out.close();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{

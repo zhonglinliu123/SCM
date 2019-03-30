@@ -34,6 +34,7 @@ public class LoginServlet extends HttpServlet{
 			session.setAttribute("user", user);
 			out.print("µÇÂ½³É¹¦");
 		}
+		out.flush();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{

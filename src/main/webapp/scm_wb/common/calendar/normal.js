@@ -16,8 +16,8 @@ var gPosOffset=[0,0];	// Offsets used to adjust the pop-up postion, [leftOffset,
 var gbFixedPos=false;	// true: pop the calendar absolutely at gPosOffset; false: pop it relatively.
 
 // ---- Common Options ----
-var gMonths=["1ÔÂ","2ÔÂ","3ÔÂ","4ÔÂ","5ÔÂ","6ÔÂ","7ÔÂ","8ÔÂ","9ÔÂ","10ÔÂ","11ÔÂ","12ÔÂ"];
-var gWeekDay=["ÈÕ","Ò»","¶þ","Èý","ËÄ","Îå","Áù"];	// weekday caption from Sunday to Saturday
+var gMonths=["1æœˆ","2æœˆ","3æœˆ","4æœˆ","5æœˆ","6æœˆ","7æœˆ","8æœˆ","9æœˆ","10æœˆ","11æœˆ","12æœˆ"];
+var gWeekDay=["ä¸ƒ","ä¸€","äºŒ","ä¸‰","å››","äº”","å…­"];	// weekday caption from Sunday to Saturday
 
 var gBegin=[1980,1,1];	// calendar date range begin from [Year,Month,Date]. Using gToday here will make it start from today.
 var gEnd=[2030,12,31];	// calendar date range end at [Year,Month,Date]
@@ -41,7 +41,7 @@ var gsNavPrev="<INPUT type='button' value='&lt;' class='MonthNav' onclick='fPrev
 var gsNavNext="<INPUT type='button' value='&gt;' class='MonthNav' onclick='fNextMonth();this.blur();'>";	// the content of the right month navigator
 
 var gbHideBottom=false;	// true: hide the bottom section; false: show it with gsBottom.
-var gsBottom="<A href='javascript:void(0)' class='Today' onclick='if(this.blur)this.blur();if(!fSetDate(gToday[0],gToday[1],gToday[2]))alert(\"Today is not a selectable date!\");return false;' onmouseover='return true;' title='Today'>Today : "+gToday[0]+"Äê "+gMonths[gToday[1]-1]+" "+gToday[2]+"ÈÕ</A>";	// the content of the bottom section.
+var gsBottom="<A href='javascript:void(0)' class='Today' onclick='if(this.blur)this.blur();if(!fSetDate(gToday[0],gToday[1],gToday[2]))alert(\"Today is not a selectable date!\");return false;' onmouseover='return true;' title='Today'>Today : "+gToday[0]+"å¹´"+gMonths[gToday[1]-1]+gToday[2]+"æ—¥</A>";	// the content of the bottom section.
 
 var giCellWidth=18;	// calendar cell width;
 var giCellHeight=14;	// calendar cell height;

@@ -16,7 +16,7 @@
 		<div id="m">
 			<table width="100%"  border="0" cellpadding="0" cellspacing="0" id="m">
 		  		<tr>
-				    <td nowrap class="title1">你的位置：工作台面-供应商管理</td>
+				    <td nowrap class="title1">你的位置：工作台面--采购管理--供应商管理</td>
 			  	</tr>
 			</table>
 			<div style="width:100%;height:25px;background-color:#8BBFE5;">

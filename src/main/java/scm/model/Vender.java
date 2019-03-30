@@ -103,4 +103,9 @@ public class Vender implements Serializable{
 		this.createdate = createdate;
 	}
 	
+	@Override
+	public String toString() {
+		return "Vender [vendercode=" + vendercode + ", name=" + name + ", password=" + password + ", contactor=" + contactor
+				+  ", address=" + address + ", postcode=" + postcode + ", tel=" + tel + ", fax=" + fax +", createdate=" + createdate + "]";
+	}
 }
