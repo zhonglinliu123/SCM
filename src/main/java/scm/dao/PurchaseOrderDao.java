@@ -107,6 +107,50 @@ public class PurchaseOrderDao {
 		}
 		return name;
 	}
+	//查询可以入库的采购单
+	public List<PurchaseOrderMain> selectInStoragePurchaseOrder() throws SQLException{
+		List<PurchaseOrderMain> purchaseOrderMainList= new ArrayList<PurchaseOrderMain>();
+		PurchaseOrderMain purchaseOrderMain = null;
+		String sql = "select poid,vendercode,account,createTime,tipfee,producttotal,pototal,paytype,prepayfee,status from pomain ";
+		conn = DBUtil_c.getConnection();
+		stat = conn.createStatement();
+		rs = stat.executeQuery(sql);
+		while(rs.next()) {
+			String poid = rs.getString("poid");
+			String venderCode = rs.getString("venderCode");
+			String createDate = rs.getString("createTime");
+			String account = rs.getString("account");
+			int tipFee= rs.getInt("tipFee");
+			int productTotal= rs.getInt("productTotal");
+			int poTotal= rs.getInt("poTotal");
+			int prePayFee= rs.getInt("prePayFee");
+			int status = rs.getInt("status");
+			int paytype = rs.getInt("payType");
+			boolean flag = false;
+			if(paytype==1 && status==1) {
+				flag = true;
+			}else if(paytype==2 && status==3){
+				flag = true;
+			}else if(paytype==3 && status==5) {
+				flag = true;
+			}
+			if(flag) {
+				String statusstr = Status.getDesc(status);
+				String payType = PayType.getDesc(paytype);
+				purchaseOrderMain = new PurchaseOrderMain(poid, venderCode, createDate, account, tipFee,
+						 productTotal, poTotal, payType, prePayFee,statusstr);
+				purchaseOrderMainList.add(purchaseOrderMain);
+			}
+		}
+		
+		for(int i=0;i<purchaseOrderMainList.size();i++) {
+			String venderCode = purchaseOrderMainList.get(i).getVenderName();
+			String venderName = getVenderName(venderCode);
+			purchaseOrderMainList.get(i).setVenderName(venderName);
+		}
+		close(conn,pstat,stat,rs);
+		return purchaseOrderMainList;
+	}
 	//根据采购单号得到采购单明细
 	public  List<PurchaseOrderItem> selectPurchaseOrderItem(String poid) throws SQLException{
 		List<PurchaseOrderItem> purchaseOrderItemList= new ArrayList<PurchaseOrderItem>();
@@ -170,6 +214,15 @@ public class PurchaseOrderDao {
 	//采购单了结
 	public void endPurchaseOrder(String poid) throws SQLException {
 		String sql = "update pomain set status=4 where poid=?";
+		conn = DBUtil_c.getConnection();
+		pstat = conn.prepareStatement(sql);
+		pstat.setString(1, poid);
+		pstat.executeUpdate();
+		close(conn,pstat,stat,rs);
+	}
+	//采购单入库
+	public void inStorageRecord(String poid) throws SQLException {
+		String sql = "update pomain set status=2 where poid=?";
 		conn = DBUtil_c.getConnection();
 		pstat = conn.prepareStatement(sql);
 		pstat.setString(1, poid);

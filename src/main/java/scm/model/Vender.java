@@ -2,7 +2,7 @@ package scm.model;
 
 import java.io.Serializable;
 
-//¹©Ó¦ÉÌ
+//供应商
 public class Vender implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String vendercode;

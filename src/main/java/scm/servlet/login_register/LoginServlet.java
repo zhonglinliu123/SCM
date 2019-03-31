@@ -28,11 +28,11 @@ public class LoginServlet extends HttpServlet{
 		}
 		PrintWriter out = response.getWriter();
 		if(user == null) {
-			out.print("ÕËºÅ»òÃÜÂëÊäÈë´íÎó£¡");
+			out.print("账号或密码错误");
 		}else {
 			HttpSession session = request.getSession(); 
 			session.setAttribute("user", user);
-			out.print("µÇÂ½³É¹¦");
+			out.print("登陆成功");
 		}
 		out.flush();
 	}

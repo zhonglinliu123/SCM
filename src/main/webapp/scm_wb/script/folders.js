@@ -29,7 +29,7 @@ var OutlookBar={
    {"text":"仓储管理", "panelCSS":"panel" ,"textCSS":"textpanel",
        "items":
        [
-          {"text":"入库登记","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/8.gif',    "url":'gztm/instock.htm', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
+          {"text":"入库登记","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/8.gif',    "url":'/SCM/scm_wb/storage_manage/in_storage_record.jsp', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
           {"text":"出库登记","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/9.gif',    "url":'xxwh/khxx.htm', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
 		  {"text":"库存盘点","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/9.gif',    "url":'gztm/count.htm', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
           {"text":"库存查询","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/10.gif',    "url":'xxwh/ccht.htm', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"}
