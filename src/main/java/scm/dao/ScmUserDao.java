@@ -98,13 +98,17 @@ public class ScmUserDao {
 		String sql = "select * from scmuser where 1=1 ";
 		if(account!=null && !"".equals(account)) {
 			sql = sql+"and account like '%"+account+"%'";
-		}else if(password!=null && !"".equals(password)) {
+		}
+		if(password!=null && !"".equals(password)) {
 			sql = sql+"and password like '%"+password+"%'";
-		}else if(name!=null && !"".equals(name)) {
+		}
+		if(name!=null && !"".equals(name)) {
 			sql = sql+"and name like '%"+name+"%'";
-		}else if(createDate!=null && !"".equals(createDate)) {
+		}
+		if(createDate!=null && !"".equals(createDate)) {
 			sql = sql+"and createDate like '%"+createDate+"%'";
-		}else if(status!=null && !"".equals(status)) {
+		}
+		if(status!=null && !"".equals(status)) {
 			sql = sql+"and status like '%"+status+"%'";
 		}
 		conn = DBUtil_c.getConnection();

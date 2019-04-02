@@ -30,9 +30,9 @@ var OutlookBar={
        "items":
        [
           {"text":"入库登记","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/8.gif',    "url":'/SCM/scm_wb/storage_manage/in_storage_record.jsp', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
-          {"text":"出库登记","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/9.gif',    "url":'xxwh/khxx.htm', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
-		  {"text":"库存盘点","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/9.gif',    "url":'gztm/count.htm', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
-          {"text":"库存查询","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/10.gif',    "url":'xxwh/ccht.htm', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"}
+          {"text":"出库登记","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/9.gif',    "url":'/SCM/scm_wb/storage_manage/out_storage_record.jsp', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
+		  {"text":"库存盘点","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/9.gif',    "url":'/SCM/scm_wb/storage_manage/stock_update.jsp', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
+          {"text":"库存查询","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/10.gif',    "url":'/SCM/scm_wb/storage_manage/stockSearch.jsp', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"}
       ]
    },
    {"text":"财务收支", "panelCSS":"panel" ,"textCSS":"textpanel",

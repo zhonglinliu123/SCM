@@ -5,15 +5,15 @@
 	<html>
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-			<title>入库登记</title>
+			<title>出库登记</title>
 			<link href="/SCM/scm_wb/css/style.css" rel="stylesheet" type="text/css">
 			<script src="/SCM/scm_wb/script/jquery-1.8.1.min.js" type="text/javascript" charset="UTF-8"></script>
-			<script src="/SCM/scm_wb/storage_manage/js/in_storage_record.js" type="text/javascript" charset="UTF-8"></script>
+			<script src="/SCM/scm_wb/storage_manage/js/out_storage_record.js" type="text/javascript" charset="UTF-8"></script>
 	</head>
 	<body>
 		<table style="width:100%;border:0;cellpadding:0;cellspacing:0;">
 		  <tr>
-		    <td nowrap class="title1">你的位置：工作台面--仓储管理--入库记录</td>
+		    <td nowrap class="title1">你的位置：工作台面--仓储管理--出库记录</td>
 		  </tr>
 		</table>
 		<div class="formVisiblitly" id="formDiv"></div>
@@ -24,38 +24,37 @@
 				
 				</div>
 				<div style="width:100%;align:center;">
-					<c:forEach items="${sessionScope.purchaseOrderMainInStorageList }" var="purchaseOrderMainInStorage" >
+					<c:forEach items="${sessionScope.sellOrderMainOutStorageList }" var="sellOrderMainOutStorage" >
 							<table id="headTable" class="a1" style="width:100%;border:0;align:center;">
 								<tr align="justify">
-				   					<td style="cursor:pointer;background-color:#EAC0C5;width:20%;height:20px;" onclick="show_poitem(this)">采购单编号${purchaseOrderMainInStorage.poid}</td>
-				    				<td><button onclick="in_storage_purchase_order(this)">采购单入库</button></td>
-				    				
+				   					<td style="cursor:pointer;background-color:#EAC0C5;width:20%;height:20px;" onclick="show_poitem(this)">销售单编号${sellOrderMainOutStorage.soid}</td>
+				    				<td><button onclick="out_storage_sell_order(this)">销售单出库</button></td>
 				  				</tr>
 				  				<tr align="justify">
 				   					<td style="color:#DD6166;">创建时间</td>
-				    				<td><span style="size:15;">${purchaseOrderMainInStorage.createDate}</span> </td>
+				    				<td><span style="size:15;">${sellOrderMainOutStorage.createTime}</span> </td>
 				    				
-				    				<td style="color:#DD6166;">供应商的名称</td>
-				    				<td><span style="size:15;">${purchaseOrderMainInStorage.venderName}</span></td>
+				    				<td style="color:#DD6166;">客户名称</td>
+				    				<td><span style="size:15;">${sellOrderMainOutStorage.customerName}</span></td>
 				    				
 								    <td style="color:#DD6166;">创建用户</td>
-								    <td><span style="size:15;">${purchaseOrderMainInStorage.account}</span></td>
+								    <td><span style="size:15;">${sellOrderMainOutStorage.account}</span></td>
 								    
 								    <td style="color:#DD6166;">附加费用</td>
-							      	<td><span style="size:15;">${purchaseOrderMainInStorage.tipFee}</span></td>
+							      	<td><span style="size:15;">${sellOrderMainOutStorage.tipFee}</span></td>
 				  				</tr>
 							    <tr align="justify">
-								      <td style="color:#DD6166;">采购产品总价</td>
-								      <td><span style="size:15;">${purchaseOrderMainInStorage.productTotal}</span></td>
+								      <td style="color:#DD6166;">销售产品总价</td>
+								      <td><span style="size:15;">${sellOrderMainOutStorage.productTotal}</span></td>
 								      
 								      <td style="color:#DD6166;">处理状态</td>
-								      <td><span style="size:15;">${purchaseOrderMainInStorage.status}</span></td>
+								      <td><span style="size:15;">${sellOrderMainOutStorage.status}</span></td>
 								      
 								      <td style="color:#DD6166;">付款方式</td>
-								      <td><span style="size:15;">${purchaseOrderMainInStorage.payType}</span></td>
+								      <td><span style="size:15;">${sellOrderMainOutStorage.payType}</span></td>
 								      
 								      <td style="color:#DD6166;">最低预付金额</td>
-								      <td><span style="size:15;">${purchaseOrderMainInStorage.prePayFee}</span></td>
+								      <td><span style="size:15;">${sellOrderMainOutStorage.prePayFee}</span></td>
 							    </tr>
 							</table>
 			  	  	</c:forEach>

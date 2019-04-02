@@ -46,8 +46,28 @@ public class StockDao {
 		close(conn, pstat, stat, rs);
 	}
 
+	//减少库存
+	public void reduceStock(String productCode,int num) throws Exception {
+		conn = DBUtil_c.getConnection();
+		String sql = "update stock set num = num-? where productCode = ? ";
+		pstat = conn.prepareStatement(sql);
+		pstat.setInt(1, num);
+		pstat.setString(2, productCode);
+		pstat.executeUpdate();
+		close(conn, pstat, stat, rs);
+	}
 
-
+	//更新库存
+	public void changeStock(String productCode,int num) throws SQLException {
+		conn = DBUtil_c.getConnection();
+		String sql = "update stock set num = ? where productCode = ? ";
+		pstat = conn.prepareStatement(sql);
+		pstat.setInt(1, num);
+		pstat.setString(2, productCode);
+		pstat.executeUpdate();
+		close(conn, pstat, stat, rs);
+	}
+	
 	private void close(Connection conn, PreparedStatement pstat, Statement stat, ResultSet rs) {
 		try {
 			if(rs != null) {

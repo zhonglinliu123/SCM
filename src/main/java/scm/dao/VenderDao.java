@@ -109,7 +109,8 @@ public class VenderDao {
 		String sql = "select * from vender where 1=1 ";
 		if(code!=null && !"".equals(code)) {
 			sql = sql+"and vendercode like '%"+code+"%'";
-		}else if(name!=null && !"".equals(name)) {
+		}
+		if(name!=null && !"".equals(name)) {
 			sql = sql+"and name like '%"+name+"%'";
 		}
 		conn = DBUtil_c.getConnection();

@@ -236,7 +236,8 @@ public class PurchaseOrderDao {
 		String sql = "select poid,vendercode,account,createTime,tipfee,producttotal,pototal,paytype,prepayfee from pomain where 1=1 and payType = ? and status = ?";
 		if(poids!=null && !"".equals(poids)) {
 			sql = sql+" and poid like '%"+poids+"%'";
-		}else if(venderCodes!=null && !"".equals(venderCodes)) {
+		}
+		if(venderCodes!=null && !"".equals(venderCodes)) {
 			sql = sql+" and venderCode like '%"+venderCodes+"%'";
 		}
 		conn = DBUtil_c.getConnection();

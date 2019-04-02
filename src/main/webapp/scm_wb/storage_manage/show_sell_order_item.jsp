@@ -5,40 +5,40 @@
 	<html>
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-			<title>采购明细</title>
+			<title>销售明细</title>
 			<link href="/SCM/scm_wb/css/style.css" rel="stylesheet" type="text/css">
 			<script src="/SCM/scm_wb/script/jquery-1.8.1.min.js" type="text/javascript" charset="UTF-8"></script>
 	</head>
 	<body>
 		<table style="width:100%;border:0;cellpadding:0;cellspacing:0;">
 		  <tr>
-		    <td nowrap class="title1">你的位置: 工作台面--仓储管理--采购单明细</td>
+		    <td nowrap class="title1">你的位置: 工作台面--仓储管理--销售单明细</td>
 		  </tr>
 		</table>
 		<div class="formVisiblitly" id="formDiv"></div>
 	
 	<div id="purchase_order_item_div" >
 			<div style="background-color:#A0C0F1;width:100%;height:20px;">采购单明细</div>
-			<c:forEach items="${sessionScope.purchaseOrderItemList }" var="purchaseOrderItem" >
+			<c:forEach items="${sessionScope.sellOrderItemList }" var="sellOrderItem" >
 				<table id="headTable" class="a1" style="width:100%;border:0;align:center;">
 	  				<tr align="justify">
 	   					<td style="color:#A3CEEC;">产品编号</td>
-	    				<td><span style="size:15;">${purchaseOrderItem.productCode}</span> </td>
+	    				<td><span style="size:15;">${sellOrderItem.productCode}</span> </td>
 	    				
 	    				<td style="color:#A3CEEC;">产品名称</td>
-	    				<td><span style="size:15;">${purchaseOrderItem.productName}</span></td>
+	    				<td><span style="size:15;">${sellOrderItem.productName}</span></td>
 	    				
 					    <td style="color:#A3CEEC;">产品数量</td>
-					    <td><span style="size:15;">${purchaseOrderItem.num}</span></td>
+					    <td><span style="size:15;">${sellOrderItem.num}</span></td>
 					    
 					    <td style="color:#A3CEEC;">数量单位</td>
-					    <td><span style="size:15;">${purchaseOrderItem.unitName}</span></td>
+					    <td><span style="size:15;">${sellOrderItem.unitNum}</span></td>
 					    
-					    <td style="color:#A3CEEC;">采购单价</td>
-				      	<td><span style="size:15;">${purchaseOrderItem.itemPrice}</span></td>
+					    <td style="color:#A3CEEC;">销售单价</td>
+				      	<td><span style="size:15;">${sellOrderItem.itemPrice}</span></td>
 				      	
-				      	<td style="color:#A3CEEC;">采购明细总价</td>
-				      	<td><span style="size:15;">${purchaseOrderItem.purchaseDetailsTotal}</span></td>
+				      	<td style="color:#A3CEEC;">产品明细总价</td>
+				      	<td><span style="size:15;">${sellOrderItem.sellDetailsTotal}</span></td>
 				      	
 				    </tr>
 				</table> 
