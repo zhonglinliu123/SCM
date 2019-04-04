@@ -151,6 +151,50 @@ public class SellOrderDao {
 		close(conn,pstat,stat,rs);
 		return sellOrderMainList;
 	}
+	// 查询出可以收款的销售单
+	public List<SellOrderMain> selectShouKuanSellOrder() throws SQLException{
+		List<SellOrderMain> sellOrderMainList= new ArrayList<SellOrderMain>();
+		SellOrderMain sellOrderMain = null;
+		String sql = "select soid,customerCode,account,createTime,tipfee,producttotal,sototal,paytype,prepayfee,status from somain ";
+		conn = DBUtil_c.getConnection();
+		stat = conn.createStatement();
+		rs = stat.executeQuery(sql);
+		while(rs.next()) {
+			String soid = rs.getString("soid");
+			String customerCode = rs.getString("customerCode");
+			String createDate = rs.getString("createTime");
+			String account = rs.getString("account");
+			int tipFee= rs.getInt("tipFee");
+			int productTotal= rs.getInt("productTotal");
+			int poTotal= rs.getInt("soTotal");
+			int prePayFee= rs.getInt("prePayFee");
+			int status = rs.getInt("status");
+			int paytype = rs.getInt("payType");
+			boolean flag = false;
+			if(paytype==1 && status==2) {
+				flag = true;
+			}else if(paytype==2 && status==1){
+				flag = true;
+			}else if(paytype==3 && (status==1 || status==2)) {
+				flag = true;
+			}
+			if(flag) {
+				String statusstr = Status.getDesc(status);
+				String payType = PayType.getDesc(paytype);
+				sellOrderMain = new SellOrderMain(soid, customerCode, account, createDate, tipFee,
+						 productTotal, poTotal, payType, prePayFee,statusstr);
+				sellOrderMainList.add(sellOrderMain);
+			}
+		}
+		
+		for(int i=0;i<sellOrderMainList.size();i++) {
+			String customerCode = sellOrderMainList.get(i).getCustomerName();
+			String customerName = getCustomerName(customerCode);
+			sellOrderMainList.get(i).setCustomerName(customerName);
+		}
+		close(conn,pstat,stat,rs);
+		return sellOrderMainList;
+	}
 	//根据销售单号得到销售单明细
 	public  List<SellOrderItem> selectSellOrderItem(String soid) throws SQLException{
 		List<SellOrderItem> sellOrderItemList= new ArrayList<SellOrderItem>();
@@ -226,6 +270,20 @@ public class SellOrderDao {
 		conn = DBUtil_c.getConnection();
 		pstat = conn.prepareStatement(sql);
 		pstat.setString(1, soid);
+		pstat.executeUpdate();
+		close(conn,pstat,stat,rs);
+	}
+	// 销售单收款 
+	public void shouKuan(String soid,String status) throws SQLException {
+		String sql = "update somain set status=? where soid=?";
+		conn = DBUtil_c.getConnection();
+		pstat = conn.prepareStatement(sql);
+		if("新增".equals(status)) {
+			pstat.setInt(1, 5);
+		}else {
+			pstat.setInt(1, 3);
+		}
+		pstat.setString(2, soid);
 		pstat.executeUpdate();
 		close(conn,pstat,stat,rs);
 	}

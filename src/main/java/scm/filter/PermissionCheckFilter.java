@@ -57,9 +57,18 @@ public class PermissionCheckFilter implements Filter{
 				String path = req.getContextPath(); //项目名称
 				resp.sendRedirect(path+"/scm_wb/no_permission.html");
 			}
+		}else if(uri.contains("/financial_revenues/")) {
+			if(user != null && "财务员".equals(user.getStatus())) {
+				//表示当前用户是财务员
+				chain.doFilter(request, response);
+			}else {
+				String path = req.getContextPath(); //项目名称
+				resp.sendRedirect(path+"/scm_wb/no_permission.html");
+			}
 		}else {
 			chain.doFilter(request, response);
 		}
+		//财务员  销售员
 	}
 
 	public void destroy() {}

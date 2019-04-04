@@ -82,6 +82,8 @@
 						  <option value ="管理员">管理员</option>
 						  <option value ="采购员">采购员</option>
 						  <option value="仓管员">仓管员</option>
+						  <option value="财务员">财务员</option>
+						  <option value="销售员">销售员</option>
 						</select>
 				    </td>
 				 </tr>

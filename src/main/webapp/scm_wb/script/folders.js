@@ -38,8 +38,8 @@ var OutlookBar={
    {"text":"财务收支", "panelCSS":"panel" ,"textCSS":"textpanel",
        "items":
        [
-          {"text":"收款登记","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/11.gif',    "url":'gztm/inMoney.htm', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
-          {"text":"付款登记","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/12.gif',    "url":'xxcx/splb.htm', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
+          {"text":"收款登记","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/11.gif',    "url":'/SCM/scm_wb/financial_revenues/receipt_register.jsp', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
+          {"text":"付款登记","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/12.gif',    "url":'/SCM/scm_wb/financial_revenues/pay_register.jsp', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"},
           {"text":"收支查询","textCSS":"a1", "image":'/SCM/scm_wb/images/pic/13.gif',    "url":'xxcx/dlqy.htm', "classCSS":"imgstyle", "overclassCSS":"imgstyle_over"}
          
       ]

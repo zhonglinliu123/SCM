@@ -37,7 +37,6 @@ function save(){
 	var createDate=(new Date()).toLocaleDateString();
 	createDate = createDate.replace(/\//g,'-');
 	var up_or_add = $("#up_or_add").val();
-
 	var act_psd_jy = /^[0-9a-zA-Z]{4,12}$/;
 	if(!act_psd_jy.test(account)){
 		$("#jiaoyan").text("账号只能是4-12位数字和字母");
